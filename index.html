@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>RUSH CRIC 🏏</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    width: 100%;
+    max-width: 520px;
+    min-height: 100vh;
+    margin: auto;
+    background: #080808;
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 18px 10px;
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    font-size: 29px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 11px;
+    margin-top: 4px;
+    letter-spacing: 2px;
+}
+
+.screen {
+    min-height: calc(100vh - 75px);
+    padding: 22px 16px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h1 {
+    text-align: center;
+    font-size: 26px;
+    margin: 15px 0 8px;
+}
+
+.center {
+    text-align: center;
+}
+
+.muted {
+    color: #999;
+    text-align: center;
+}
+
+select {
+    width: 100%;
+    padding: 17px;
+    margin-top: 25px;
+    background: #151515;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 13px;
+    font-size: 18px;
+}
+
+button {
+    font-family: inherit;
+}
+
+.primary {
+    width: 100%;
+    padding: 17px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 13px;
+    background: white;
+    color: black;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.primary:active {
+    transform: scale(.98);
+}
+
+.card {
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 18px;
+    padding: 22px;
+    margin-top: 20px;
+}
+
+.flag {
+    font-size: 70px;
+    text-align: center;
+    margin: 10px;
+}
+
+.anthem-name {
+    text-align: center;
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.playing {
+    color: #aaa;
+    text-align: center;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+.coin {
+    text-align: center;
+    font-size: 75px;
+    margin: 15px;
+}
+
+.toss-text {
+    text-align: center;
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+.toss-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.toss-button {
+    height: 70px;
+    background: #151515;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.scoreboard {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 15px;
+}
+
+.team-label {
+    color: #999;
+    font-size: 12px;
+}
+
+.score-number {
+    font-size: 31px;
+    font-weight: 900;
+    margin-top: 4px;
+}
+
+.score-right {
+    text-align: right;
+}
+
+.over-display {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.target {
+    text-align: center;
+    min-height: 25px;
+    margin: 12px 0;
+    font-weight: 900;
+}
+
+.batting-status {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    margin: 15px 0;
+}
+
+.commentary {
+    min-height: 55px;
+    padding: 16px;
+    text-align: center;
+    background: #101010;
+    border-radius: 13px;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.number-button {
+    height: 76px;
+    border-radius: 16px;
+    background: #171717;
+    border: 1px solid #444;
+    color: white;
+    font-size: 31px;
+    font-weight: 900;
+}
+
+.number-button:active {
+    background: #333;
+    transform: scale(.95);
+}
+
+.result-icon {
+    text-align: center;
+    font-size: 65px;
+    margin-top: 15px;
+}
+
+.winner {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 900;
+    margin: 15px 0;
+}
+
+.margin {
+    text-align: center;
+    font-size: 20px;
+    color: #ccc;
+}
+
+.poster {
+    margin-top: 25px;
+    padding: 28px 15px;
+    border: 1px solid #444;
+    border-radius: 20px;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, #242424 0, #090909 65%);
+}
+
+.poster-rush {
+    font-size: 45px;
+    font-weight: 1000;
+    letter-spacing: 5px;
+}
+
+.poster-cric {
+    font-size: 18px;
+    color: #aaa;
+    letter-spacing: 8px;
+}
+
+.poster-ball {
+    font-size: 62px;
+    margin: 10px;
+}
+
+.poster-title {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.poster-small {
+    color: #777;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.note {
+    text-align: center;
+    color: #666;
+    font-size: 11px;
+    margin-top: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+    <div class="logo">RUSH CRIC 🏏</div>
+    <div class="subtitle">YOU VS AI • HAND CRICKET</div>
+</header>
+
+<!-- COUNTRY -->
+<section id="countryScreen" class="screen">
+
+    <h1>Which country are you from?</h1>
+
+    <p class="muted">
+        Select your country to begin the match.
+    </p>
+
+    <select id="countrySelect">
+
+        <option value="India">🇮🇳 India</option>
+        <option value="Pakistan">🇵🇰 Pakistan</option>
+        <option value="Bangladesh">🇧🇩 Bangladesh</option>
+        <option value="Sri Lanka">🇱🇰 Sri Lanka</option>
+        <option value="Nepal">🇳🇵 Nepal</option>
+        <option value="Afghanistan">🇦🇫 Afghanistan</option>
+        <option value="England">🏴 England</option>
+        <option value="Australia">🇦🇺 Australia</option>
+        <option value="South Africa">🇿🇦 South Africa</option>
+        <option value="New Zealand">🇳🇿 New Zealand</option>
+        <option value="United States">🇺🇸 United States</option>
+
+    </select>
+
+    <button class="primary" onclick="startCountry()">
+        CONTINUE →
+    </button>
+
+    <div class="note">
+        Your selected country automatically determines the anthem.
+    </div>
+
+</section>
+
+
+<!-- ANTHEM -->
+<section id="anthemScreen" class="screen hidden">
+
+    <div class="card">
+
+        <div id="countryFlag" class="flag">🇮🇳</div>
+
+        <div id="anthemName" class="anthem-name">
+            Jana Gana Mana
+        </div>
+
+        <p class="muted">
+            National Anthem
+        </p>
+
+        <button class="primary" onclick="playAnthem()">
+            ▶ PLAY ANTHEM
+        </button>
+
+        <div id="anthemStatus" class="playing"></div>
+
+        <button class="primary" onclick="goToToss()">
+            CONTINUE TO TOSS →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- TOSS -->
+<section id="tossScreen" class="screen hidden">
+
+    <h1>TOSS</h1>
+
+    <div class="card">
+
+        <div class="coin">🪙</div>
+
+        <div id="tossText" class="toss-text">
+            Choose Heads or Tails
+        </div>
+
+        <div class="toss-buttons">
+
+            <button class="toss-button"
+                    onclick="chooseToss('Heads')">
+                HEADS
+            </button>
+
+            <button class="toss-button"
+                    onclick="chooseToss('Tails')">
+                TAILS
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MATCH -->
+<section id="matchScreen" class="screen hidden">
+
+    <div class="scoreboard">
+
+        <div>
+            <div class="team-label">YOU</div>
+            <div id="yourScore" class="score-number">0/0</div>
+        </div>
+
+        <div id="overDisplay" class="over-display">
+            0.0<br>OVERS
+        </div>
+
+        <div class="score-right">
+            <div class="team-label">AI</div>
+            <div id="aiScore" class="score-number">0/0</div>
+        </div>
+
+    </div>
+
+    <div id="targetDisplay" class="target"></div>
+
+    <div id="battingStatus" class="batting-status">
+        YOUR BATTING
+    </div>
+
+    <div id="commentary" class="commentary">
+        Choose your number.
+    </div>
+
+    <div id="numberGrid" class="number-grid"></div>
+
+</section>
+
+
+<!-- RESULT -->
+<section id="resultScreen" class="screen hidden">
+
+    <div class="result-icon">🏆</div>
+
+    <h1>FINAL RESULT</h1>
+
+    <div id="winnerText" class="winner">
+        YOU WIN!
+    </div>
+
+    <div id="marginText" class="margin">
+        You won by 5 runs
+    </div>
+
+    <div class="poster">
+
+        <div class="poster-rush">RUSH</div>
+
+        <div class="poster-cric">
+            CRIC
+        </div>
+
+        <div class="poster-ball">
+            🏏🏆
+        </div>
+
+        <div id="posterTitle" class="poster-title">
+            MATCH CHAMPION
+        </div>
+
+        <div class="poster-small">
+            2 OVERS • 1 WICKET • YOU VS AI
+        </div>
+
+    </div>
+
+    <button class="primary" onclick="restartGame()">
+        🔄 RESTART
+    </button>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* =========================
+   COUNTRY DATA
+========================= */
+
+const countryData = {
+
+    "India": {
+        flag: "🇮🇳",
+        anthem: "Jana Gana Mana"
+    },
+
+    "Pakistan": {
+        flag: "🇵🇰",
+        anthem: "Qaumi Taranah"
+    },
+
+    "Bangladesh": {
+        flag: "🇧🇩",
+        anthem: "Amar Shonar Bangla"
+    },
+
+    "Sri Lanka": {
+        flag: "🇱🇰",
+        anthem: "Sri Lanka Matha"
+    },
+
+    "Nepal": {
+        flag: "🇳🇵",
+        anthem: "Sayaun Thunga Phulka"
+    },
+
+    "Afghanistan": {
+        flag: "🇦🇫",
+        anthem: "Milli Surood"
+    },
+
+    "England": {
+        flag: "🏴",
+        anthem: "God Save the King"
+    },
+
+    "Australia": {
+        flag: "🇦🇺",
+        anthem: "Advance Australia Fair"
+    },
+
+    "South Africa": {
+        flag: "🇿🇦",
+        anthem: "National Anthem of South Africa"
+    },
+
+    "New Zealand": {
+        flag: "🇳🇿",
+        anthem: "God Defend New Zealand"
+    },
+
+    "United States": {
+        flag: "🇺🇸",
+        anthem: "The Star-Spangled Banner"
+    }
+
+};
+
+
+/* =========================
+   GAME VARIABLES
+========================= */
+
+let selectedCountry = "";
+
+let tossWinner = "";
+let playerWonToss = false;
+
+let battingFirst = "";
+
+let innings = 1;
+
+/*
+ score[0] = player
+ score[1] = AI
+*/
+let score = [0, 0];
+
+/*
+ wickets[0] = player
+ wickets[1] = AI
+*/
+let wickets = [0, 0];
+
+/*
+ balls[0] = player's batting balls
+ balls[1] = AI's batting balls
+*/
+let balls = [0, 0];
+
+let target = null;
+
+let gameOver = false;
+
+
+/* =========================
+   SCREEN CONTROL
+========================= */
+
+function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.add("hidden");
+    });
+
+    document.getElementById(id).classList.remove("hidden");
+}
+
+
+/* =========================
+   COUNTRY
+========================= */
+
+function startCountry() {
+
+    selectedCountry =
+        document.getElementById("countrySelect").value;
+
+    const data = countryData[selectedCountry];
+
+    document.getElementById("countryFlag").textContent =
+        data.flag;
+
+    document.getElementById("anthemName").textContent =
+        data.anthem;
+
+    showScreen("anthemScreen");
+}
+
+
+/* =========================
+   SIMPLE ANTHEM AUDIO
+========================= */
+
+let audioContext = null;
+
+function playAnthem() {
+
+    document.getElementById("anthemStatus").textContent =
+        "♪ National anthem playing...";
+
+    if (audioContext) {
+        audioContext.close();
+    }
+
+    audioContext =
+        new (window.AudioContext ||
+             window.webkitAudioContext)();
+
+    /*
+       Short ceremonial melody.
+       The actual anthem recording is not embedded.
+    */
+
+    const notes = [
+        261.63,
+        293.66,
+        329.63,
+        349.23,
+        392.00,
+        349.23,
+        329.63,
+        293.66,
+        261.63
+    ];
+
+    const start = audioContext.currentTime;
+
+    notes.forEach((frequency, index) => {
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value = frequency;
+
+        gain.gain.setValueAtTime(
+            0,
+            start + index * 0.28
+        );
+
+        gain.gain.linearRampToValueAtTime(
+            0.08,
+            start + index * 0.28 + 0.03
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            start + index * 0.28 + 0.25
+        );
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+
+        oscillator.start(
+            start + index * 0.28
+        );
+
+        oscillator.stop(
+            start + index * 0.28 + 0.26
+        );
+
+    });
+
+    setTimeout(() => {
+
+        document.getElementById("anthemStatus")
+            .textContent = "♪ Anthem finished";
+
+    }, 2800);
+}
+
+
+/* =========================
+   TOSS
+========================= */
+
+function goToToss() {
+
+    showScreen("tossScreen");
+
+    document.getElementById("tossText").innerHTML =
+        "Choose your toss call";
+}
+
+
+function chooseToss(playerCall) {
+
+    const result =
+        Math.random() < 0.5
+        ? "Heads"
+        : "Tails";
+
+    playerWonToss =
+        playerCall === result;
+
+    tossWinner =
+        playerWonToss ? "You" : "AI";
+
+    document.getElementById("tossText").innerHTML =
+        `
+        Coin: <b>${result}</b><br><br>
+        <b>${tossWinner} won the toss!</b>
+        `;
+
+    setTimeout(() => {
+
+        startMatch();
+
+    }, 1200);
+}
+
+
+/* =========================
+   START MATCH
+========================= */
+
+function startMatch() {
+
+    /*
+       Toss winner decides randomly whether
+       to bat or bowl.
+
+       This keeps the toss meaningful.
+    */
+
+    if (playerWonToss) {
+
+        battingFirst =
+            Math.random() < 0.5
+            ? "You"
+            : "AI";
+
+    } else {
+
+        /*
+           AI independently decides.
+        */
+
+        battingFirst =
+            Math.random() < 0.5
+            ? "AI"
+            : "You";
+    }
+
+    innings = 1;
+
+    score = [0, 0];
+
+    wickets = [0, 0];
+
+    balls = [0, 0];
+
+    target = null;
+
+    gameOver = false;
+
+    createNumberButtons();
+
+    showScreen("matchScreen");
+
+    updateMatchUI();
+
+}
+
+
+/* =========================
+   NUMBER BUTTONS
+========================= */
+
+function createNumberButtons() {
+
+    const grid =
+        document.getElementById("numberGrid");
+
+    grid.innerHTML = "";
+
+    for (let number = 1; number <= 6; number++) {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "number-button";
+
+        button.textContent = number;
+
+        button.onclick = function() {
+            playBall(number);
+        };
+
+        grid.appendChild(button);
+    }
+}
+
+
+/* =========================
+   AI NUMBER
+========================= */
+
+function aiChooseNumber() {
+
+    /*
+       IMPORTANT:
+       AI chooses independently.
+       The player NEVER chooses this number.
+    */
+
+    return Math.floor(Math.random() * 6) + 1;
+}
+
+
+/* =========================
+   PLAY BALL
+========================= */
+
+function playBall(playerNumber) {
+
+    if (gameOver) return;
+
+    const aiNumber =
+        aiChooseNumber();
+
+    let playerBatting =
+        getCurrentBatter() === "You";
+
+    let runs = 0;
+
+    let out = false;
+
+
+    /*
+       PLAYER BATTING
+    */
+
+    if (playerBatting) {
+
+        balls[0]++;
+
+        if (playerNumber === aiNumber) {
+
+            out = true;
+
+            wickets[0] = 1;
+
+            runs = 0;
+
+            document.getElementById("commentary")
+                .textContent =
+                `You: ${playerNumber} • AI: ${aiNumber} — OUT!`;
+
+        } else {
+
+            runs = playerNumber;
+
+            score[0] += runs;
+
+            document.getElementById("commentary")
+                .textContent =
+                `You: ${playerNumber} • AI: ${aiNumber} — ${runs} run${runs === 1 ? "" : "s"}!`;
+        }
+
+    }
+
+
+    /*
+       AI BATTING
+    */
+
+    else {
+
+        balls[1]++;
+
+        if (playerNumber === aiNumber) {
+
+            out = true;
+
+            wickets[1] = 1;
+
+            runs = 0;
+
+            document.getElementById("commentary")
+                .textContent =
+                `You bowled: ${playerNumber} • AI batted: ${aiNumber} — OUT!`;
+
+        } else {
+
+            runs = aiNumber;
+
+            score[1] += runs;
+
+            document.getElementById("commentary")
+                .textContent =
+                `You bowled: ${playerNumber} • AI batted: ${aiNumber} — AI scored ${runs}!`;
+        }
+
+    }
+
+
+    updateMatchUI();
+
+
+    /*
+       TARGET REACHED
+    */
+
+    if (innings === 2) {
+
+        if (score[0] >= target) {
+
+            finishGame("You");
+
+            return;
+        }
+
+        if (score[1] >= target) {
+
+            finishGame("AI");
+
+            return;
+        }
+    }
+
+
+    /*
+       WICKET OR 12 BALLS
+    */
+
+    const currentIndex =
+        playerBatting ? 0 : 1;
+
+    const inningsEnded =
+        out ||
+        balls[currentIndex] >= 12;
+
+
+    if (inningsEnded) {
+
+        endInnings();
+
+        return;
+    }
+
+}
+
+
+/* =========================
+   CURRENT BATTER
+========================= */
+
+function getCurrentBatter() {
+
+    if (innings === 1) {
+
+        return battingFirst;
+
+    }
+
+    return battingFirst === "You"
+        ? "AI"
+        : "You";
+}
+
+
+/* =========================
+   END INNINGS
+========================= */
+
+function endInnings() {
+
+    if (innings === 1) {
+
+        /*
+           First innings complete.
+           Create target.
+        */
+
+        let firstScore =
+            battingFirst === "You"
+            ? score[0]
+            : score[1];
+
+        target =
+            firstScore + 1;
+
+        innings = 2;
+
+        balls[0] = 0;
+        balls[1] = 0;
+
+        document.getElementById("commentary")
+            .textContent =
+            `Innings break! Target is ${target}.`;
+
+        updateMatchUI();
+
+        return;
+    }
+
+
+    /*
+       Second innings ended without target.
+    */
+
+    if (score[0] > score[1]) {
+
+        finishGame("You");
+
+    } else if (score[1] > score[0]) {
+
+        finishGame("AI");
+
+    } else {
+
+        finishGame("Tie");
+
+    }
+}
+
+
+/* =========================
+   UPDATE SCORECARD
+========================= */
+
+function updateMatchUI() {
+
+    document.getElementById("yourScore")
+        .textContent =
+        `${score[0]}/${wickets[0]}`;
+
+    document.getElementById("aiScore")
+        .textContent =
+        `${score[1]}/${wickets[1]}`;
+
+
+    const batter =
+        getCurrentBatter();
+
+    const batterIndex =
+        batter === "You" ? 0 : 1;
+
+    const currentBalls =
+        balls[batterIndex];
+
+
+    document.getElementById("overDisplay")
+        .innerHTML =
+        `
+        ${Math.floor(currentBalls / 6)}.${currentBalls % 6}
+        <br>
+        OVERS
+        `;
+
+
+    if (target !== null) {
+
+        document.getElementById("targetDisplay")
+            .textContent =
+            `TARGET: ${target}`;
+
+    } else {
+
+        document.getElementById("targetDisplay")
+            .textContent = "";
+
+    }
+
+
+    if (batter === "You") {
+
+        document.getElementById("battingStatus")
+            .textContent =
+            "🏏 YOUR BATTING — CHOOSE 1–6";
+
+    } else {
+
+        document.getElementById("battingStatus")
+            .textContent =
+            "🎯 YOU ARE BOWLING — CHOOSE 1–6";
+
+    }
+
+}
+
+
+/* =========================
+   FINAL RESULT
+========================= */
+
+function finishGame(winner) {
+
+    gameOver = true;
+
+    showScreen("resultScreen");
+
+    const winnerText =
+        document.getElementById("winnerText");
+
+    const marginText =
+        document.getElementById("marginText");
+
+    const posterTitle =
+        document.getElementById("posterTitle");
+
+
+    if (winner === "You") {
+
+        winnerText.textContent =
+            "🎉 YOU WIN!";
+
+        posterTitle.textContent =
+            "RUSH CRIC CHAMPION";
+
+        if (battingFirst === "You") {
+
+            const margin =
+                score[0] - score[1];
+
+            marginText.textContent =
+                `You won by ${margin} run${margin === 1 ? "" : "s"}`;
+
+        } else {
+
+            const wicketsRemaining =
+                1 - wickets[0];
+
+            marginText.textContent =
+                `You won by ${wicketsRemaining} wicket${wicketsRemaining === 1 ? "" : "s"}`;
+
+        }
+
+    }
+
+
+    else if (winner === "AI") {
+
+        winnerText.textContent =
+            "🤖 AI WINS!";
+
+        posterTitle.textContent =
+            "BETTER LUCK NEXT MATCH";
+
+        if (battingFirst === "AI") {
+
+            const margin =
+                score[1] - score[0];
+
+            marginText.textContent =
+                `AI won by ${margin} run${margin === 1 ? "" : "s"}`;
+
+        } else {
+
+            const wicketsRemaining =
+                1 - wickets[1];
+
+            marginText.textContent =
+                `AI won by ${wicketsRemaining} wicket${wicketsRemaining === 1 ? "" : "s"}`;
+
+        }
+
+    }
+
+
+    else {
+
+        winnerText.textContent =
+            "🤝 MATCH TIED";
+
+        posterTitle.textContent =
+            "WHAT A MATCH!";
+
+        marginText.textContent =
+            "Both teams finished level.";
+
+    }
+
+}
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartGame() {
+
+    /*
+       Restart always returns to:
+
+       Country selection
+       ↓
+       Anthem
+       ↓
+       New toss
+       ↓
+       New match
+    */
+
+    selectedCountry = "";
+
+    tossWinner = "";
+
+    playerWonToss = false;
+
+    battingFirst = "";
+
+    innings = 1;
+
+    score = [0, 0];
+
+    wickets = [0, 0];
+
+    balls = [0, 0];
+
+    target = null;
+
+    gameOver = false;
+
+    document.getElementById("countrySelect")
+        .selectedIndex = 0;
+
+    document.getElementById("anthemStatus")
+        .textContent = "";
+
+    showScreen("countryScreen");
+}
+
+</script>
+
+</body>
+      </html>
